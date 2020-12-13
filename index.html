@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator with four basic operations.</title>
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+    <script src="calculator.js"></script>
+</head>
+<body>
+<div id="calculator-container" class="calculator content-size">
+    <div class="container vertical">
+        <div class="container horizontal">
+            <div class="item">
+                <div class="button" onclick="calculator.cleanAll()">C</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.cleanEntry()">CE</div>
+            </div>
+            <div class="item double">
+                <div class="button" onclick="calculator.chooseOperation(this.innerText)">=</div>
+            </div>
+        </div>
+        <div class="container horizontal">
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">+/-</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">0</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">.</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.chooseOperation(this.innerText)">+</div>
+            </div>
+        </div>
+        <div class="container horizontal">
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">1</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">2</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">3</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.chooseOperation(this.innerText)">-</div>
+            </div>
+        </div>
+        <div class="container horizontal">
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">4</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">5</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">6</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.chooseOperation(this.innerText)">×</div>
+            </div>
+        </div>
+        <div class="container horizontal">
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">7</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">8</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.appendDigit(this.innerText)">9</div>
+            </div>
+            <div class="item">
+                <div class="button" onclick="calculator.chooseOperation(this.innerText)">÷</div>
+            </div>
+        </div>
+        <div class="container horizontal">
+            <div class="item result">
+                <div id="calc-result">Loading...</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

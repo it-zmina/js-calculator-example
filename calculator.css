@@ -1,0 +1,114 @@
+:root {
+  --font-size: 2em;
+  --button-spacing: calc(var(--font-size) / 4);
+  --border-width: calc(var(--button-spacing) / 2);
+  /* parameter 1.66 defined from such calculator with, which has enough space
+   * for output 24 digits to result window. For example "-2.3485425827738332e+108".
+   * parameter 1.2 defined from visual proportions.
+   */
+  --button-width: calc(1.66 * var(--font-size));
+  --button-height: calc(1.2 * var(--font-size));
+  /* Calculator size 4 to 6 buttons */
+  --calculator-width: calc(4 * var(--button-width) + 3 * var(--button-spacing));
+  --calculator-height: calc(6 * var(--button-height) + 5 * var(--button-spacing));
+  --body-margin: 8px;
+  --browser-scrollbar-width: 17px;
+  --button-vertical-padding: calc((var(--button-height) - var(--font-size)) / 2 * 2.4);
+  font-size: var(--font-size);
+}
+
+body {
+  margin: var(--body-margin);
+}
+
+.calculator {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* In case if calculator greater than viewport size */
+.content-size {
+  height: calc(var(--calculator-height) + 2 * var(--border-width));
+  width: calc(var(--calculator-width) + 2 * var(--border-width));
+}
+
+/* In case if calculator height less than viewport height
+ * 540.8px -- calculator height,
+ * 8px -- body margin, 17px -- scrollbars width
+ * 17px -- reqular mistake for browser's returned viewport height
+ */
+@media (min-height: calc(540.8px + 2 * 8px + 17px + 17px)){
+  .content-size {
+    height: calc(100vh - var(--browser-scrollbar-width) - 2 * var(--body-margin));
+  }
+}
+
+/* In case if calculator width less than viewport width
+ * 419.2px -- calculator width,
+ * 8px -- body margin, 17px -- scrollbars width,
+ * 17px -- regular mistake for browser's returned viewport width
+ */
+@media (min-width: calc(473px + 2 * 8px + 17px + 17px)){
+  .content-size {
+    width: calc(100vw - var(--browser-scrollbar-width) - 2 * var(--body-margin));
+  }
+}
+
+.container {
+  display: flex;
+  background-color: DodgerBlue;
+  justify-content: center;
+  align-content: center;
+}
+
+.vertical {
+  width: var(--calculator-width);
+  height: var(--calculator-height);
+  flex-direction: column-reverse;
+  padding: var(--border-width);
+  border-radius: var(--border-width);
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+.item {
+  font-variant-numeric: slashed-zero;
+  font-family: 'Consolas', 'Fira Sans', sans-serif, monospace;
+  font-feature-settings: 'zero' on;
+  text-align: center;
+  flex: 1;
+}
+
+.button {
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  margin: calc(var(--button-spacing) / 2);
+  padding: var(--button-vertical-padding);
+  border: 2px solid gray;
+}
+
+.button:hover {
+  background-color: #cfcfcf;
+  border: 2px solid black;
+  height: available;
+}
+
+#calc-result {
+  background-color: white;
+  text-align: right;
+  margin: calc(var(--button-spacing) / 2);
+  padding: var(--button-vertical-padding);
+  border: 2px solid darkgray;
+}
+
+.double {
+  flex: 2;
+}
+
+.result {
+  flex: 5;
+}
